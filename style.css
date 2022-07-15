@@ -1,5 +1,24 @@
 * {
     margin: 0;
     padding: 0;
-    background-color: red;
+}
+
+body {
+    background-image: url('./docs/assets/images/casino.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#canvas {
+    border: 2px solid black;
+    margin-top: 30px;
+    background-color: white;
+    opacity: 0.6;
+    box-shadow: 20px 20px 5px black;
+}
+
+#canvas-body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
