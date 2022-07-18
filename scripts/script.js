@@ -60,10 +60,56 @@ ctx.font = 'bold 16px sans-serif';
 ctx.fillStyle = 'black';
 ctx.fillText('Remaining Cards: ', 700, 30);
 
-gridDisplay = document.querySelector("#grid");
+let decksArray = [
+    {x: 120, y:100, cards: []},
+    {x: 420, y:100, cards: []},
+    {x: 720, y:100, cards: []},
+    {x: 120, y:275, cards: []},
+    {x: 420, y:275, cards: []},
+    {x: 720, y:275, cards: []},
+    {x: 120, y:450, cards: []},
+    {x: 420, y:450, cards: []},
+    {x: 720, y:450, cards: []},
+]
 
-// draw placeholders
-ctx.fillStyle = 'red';
-ctx.fillRect(70, 400, 50, 50);
+let selected = -1;
+decksArray.forEach((deck, index) => {
+    if(selected === index){
+        ctx.fillStyle = 'green';
+    } else{
+        ctx.fillStyle = 'red';
+    }
 
+    ctx.fillRect(deck.x, deck.y, 80, 120)
+})
+
+
+document.addEventListener('keypress', (e) => {
+    if(e.code === 'KeyD'){
+        selected = (selected + 1) % 9
+        decksArray.forEach((deck, index) => {
+            if(selected === index){
+                ctx.fillStyle = 'green';
+            } else{
+                ctx.fillStyle = 'red';
+            }
+            
+            ctx.fillRect(deck.x, deck.y, 80, 120)
+        })
+        console.log(selected);
+    }
+})
+
+// Start w/ HigherLowerSelector off
+
+/* let HigherLowerSelectorDisplay = document.querySelector("#higherLowerSelector");
+console.log(HigherLowerSelectorDisplay);
+HigherLowerSelectorDisplay.classList.remove("higherLowerSelector"); */
+
+
+document.addEventListener('keydown', (e) => {
+    if(e.code === 'KeyS'){
+        alert('test');
+    }
+})
 
