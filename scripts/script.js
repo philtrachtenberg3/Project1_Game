@@ -1,77 +1,18 @@
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 
-const cardArray = [
-    {name: "2", value: 2, suit: "Hearts", img: ""},
-    {name: "2", value: 2, suit: "Diamonds", img: ""},
-    {name: "2", value: 2, suit: "Clubs", img: ""},
-    {name: "2", value: 2, suit: "Spades", img: ""},
-    {name: "3", value: 3, suit: "Hearts", img: ""},
-    {name: "3", value: 3, suit: "Diamonds", img: ""},
-    {name: "3", value: 3, suit: "Clubs", img: ""},
-    {name: "3", value: 3, suit: "Spades", img: ""},
-    {name: "4", value: 4, suit: "Hearts", img: ""},
-    {name: "4", value: 4, suit: "Diamonds", img: ""},
-    {name: "4", value: 4, suit: "Clubs", img: ""},
-    {name: "4", value: 4, suit: "Spades", img: ""},
-    {name: "5", value: 5, suit: "Hearts", img: ""},
-    {name: "5", value: 5, suit: "Diamonds", img: ""},
-    {name: "5", value: 5, suit: "Clubs", img: ""},
-    {name: "5", value: 5, suit: "Spades", img: ""},
-    {name: "6", value: 6, suit: "Hearts", img: ""},
-    {name: "6", value: 6, suit: "Diamonds", img: ""},
-    {name: "6", value: 6, suit: "Clubs", img: ""},
-    {name: "6", value: 6, suit: "Spades", img: ""},
-    {name: "7", value: 7, suit: "Hearts", img: ""},
-    {name: "7", value: 7, suit: "Diamonds", img: ""},
-    {name: "7", value: 7, suit: "Clubs", img: ""},
-    {name: "7", value: 7, suit: "Spades", img: ""},
-    {name: "8", value: 8, suit: "Hearts", img: ""},
-    {name: "8", value: 8, suit: "Diamonds", img: ""},
-    {name: "8", value: 8, suit: "Clubs", img: ""},
-    {name: "8", value: 8, suit: "Spades", img: ""},
-    {name: "9", value: 9, suit: "Hearts", img: ""},
-    {name: "9", value: 9, suit: "Diamonds", img: ""},
-    {name: "9", value: 9, suit: "Clubs", img: ""},
-    {name: "9", value: 9, suit: "Spades", img: ""},
-    {name: "10", value: 10, suit: "Hearts", img: ""},
-    {name: "10", value: 10, suit: "Diamonds", img: ""},
-    {name: "10", value: 10, suit: "Clubs", img: ""},
-    {name: "10", value: 10, suit: "Spades", img: ""},
-    {name: "J", value: 11, suit: "Hearts", img: ""},
-    {name: "J", value: 11, suit: "Diamonds", img: ""},
-    {name: "J", value: 11, suit: "Clubs", img: ""},
-    {name: "J", value: 11, suit: "Spades", img: ""},
-    {name: "Q", value: 12, suit: "Hearts", img: ""},
-    {name: "Q", value: 12, suit: "Diamonds", img: ""},
-    {name: "Q", value: 12, suit: "Clubs", img: ""},
-    {name: "Q", value: 12, suit: "Spades", img: ""},
-    {name: "K", value: 13, suit: "Hearts", img: ""},
-    {name: "K", value: 13, suit: "Diamonds", img: ""},
-    {name: "K", value: 13, suit: "Clubs", img: ""},
-    {name: "K", value: 13, suit: "Spades", img: ""},
-    {name: "A", value: 14, suit: "Hearts", img: ""}, 
-    {name: "A", value: 14, suit: "Diamonds", img: ""}, 
-    {name: "A", value: 14, suit: "Clubs", img: "/docs/assets/images/ace_of_clubs.png"}, 
-    {name: "A", value: 14, suit: "Spades", img: ""} 
-]
+
 
 ctx.font = 'bold 16px sans-serif';
 ctx.fillStyle = 'black';
-ctx.fillText('Remaining Cards: ', 700, 30);
+//ctx.fillText('Remaining Cards: ', 700, 30);
 
-let decksArray = [
-    {x: 120, y:100, cards: []},
-    {x: 420, y:100, cards: []},
-    {x: 720, y:100, cards: []},
-    {x: 120, y:275, cards: []},
-    {x: 420, y:275, cards: []},
-    {x: 720, y:275, cards: []},
-    {x: 120, y:450, cards: []},
-    {x: 420, y:450, cards: []},
-    {x: 720, y:450, cards: []},
-]
+// create the position for all piles of cards
 
+let game = new Game(cardsArray, decksArray, ctx)
+
+
+// ability to select each pile of cards
 let selected = -1;
 decksArray.forEach((deck, index) => {
     if(selected === index){
@@ -79,9 +20,11 @@ decksArray.forEach((deck, index) => {
     } else{
         ctx.fillStyle = 'red';
     }
-
+    
     ctx.fillRect(deck.x, deck.y, 80, 120)
-})
+}) 
+
+game.start();
 
 
 document.addEventListener('keypress', (e) => {
@@ -100,16 +43,32 @@ document.addEventListener('keypress', (e) => {
     }
 })
 
-// Start w/ HigherLowerSelector off
+// IN PROGRESS: Start w/ HigherLowerSelector off
 
-/* let HigherLowerSelectorDisplay = document.querySelector("#higherLowerSelector");
-console.log(HigherLowerSelectorDisplay);
+let HigherLowerSelectorDisplay = document.querySelector("#higherLowerSelector");
+/* console.log(HigherLowerSelectorDisplay);
 HigherLowerSelectorDisplay.classList.remove("higherLowerSelector"); */
+
+
+// bring popup on key S for user to select higher, lower, even
+function bringHigherLowerSelector() {
+    
+    // Declare variables to target each part of the pop-up
+    let textSelector = document.querySelector("#higherLowerSelector p")
+    let higherSelector = document.querySelector("#higherButton")
+    let lowerSelector = document.querySelector("#lowerButton")
+    let evenSelector = document.querySelector("#evenButton")
+
+    // Bring text into popup
+    textSelector.innerHTML = "How will the next number compare?";
+    higherSelector.innerHTML = "Higher";
+    lowerSelector.innerHTML = "Lower";
+    evenSelector.innerHTML = "Even";
+}
 
 
 document.addEventListener('keydown', (e) => {
     if(e.code === 'KeyS'){
-        alert('test');
+        bringHigherLowerSelector();
     }
 })
-
