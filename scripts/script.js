@@ -1,12 +1,6 @@
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 
-
-
-ctx.font = 'bold 16px sans-serif';
-ctx.fillStyle = 'black';
-//ctx.fillText('Remaining Cards: ', 700, 30);
-
 // create the position for all piles of cards
 
 let game = new Game(cardsArray, decksArray, ctx)

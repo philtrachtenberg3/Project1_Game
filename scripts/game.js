@@ -1,4 +1,3 @@
-
 class Game {
     constructor(cardsArray, decksArray, ctx) {
         this.cardsArray = cardsArray;
@@ -6,12 +5,11 @@ class Game {
         this.ctx = ctx;
     }
 
-
-shuffleDeck() {
+    shuffleDeck() {
     let deck = this.cardsArray;
-    for (let i = 0 ; i < this.cardsArray.length - 1 ; i++) {
+    for (let i = 0 ; i < this.cardsArray.length ; i++) {
         let tempCard = this.cardsArray[i];
-        let randomIndex = Math.floor(Math.random() * 52) + 1;
+        let randomIndex = Math.floor(Math.random() * 52);
         deck[i] = deck[randomIndex];
         deck[randomIndex] = tempCard;
     }
@@ -32,14 +30,21 @@ printCards = () => {
         let lastCard = deck.cards[deck.cards.length-1]   
         console.log(deck)
         this.ctx.fillText(`${lastCard.name} : ${lastCard.suit}`, deck.x, deck.y)
-        
     })
+}
+
+remainingCards() {
+    const remainingCards = this.cardsArray.length;
+    ctx.font = 'bold 16px sans-serif';
+    ctx.fillStyle = 'black';
+    this.ctx.fillText(`Remaining Cards: ${remainingCards}`, 700, 30);
 }
 
 start = () => {
     this.shuffleDeck();
     this.returnFirst9Cards();
     this.printCards();
+    this.remainingCards();
     console.log(this.cardsArray);
     console.log(this.decksArray);
 }
