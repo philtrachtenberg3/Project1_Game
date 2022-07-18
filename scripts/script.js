@@ -3,8 +3,14 @@ const ctx = canvas.getContext('2d');
 
 // create the position for all piles of cards
 
-let game = new Game(cardsArray, decksArray, ctx)
+// let game = new Game(cardsArray, decksArray, ctx)
 
+// start game
+const startBtn = document.getElementById('start');
+startBtn.addEventListener('click', () => {
+      game = new Game(cardsArray, decksArray, ctx);
+      game.start();
+    });
 
 // ability to select each pile of cards
 let selected = -1;
@@ -17,8 +23,6 @@ decksArray.forEach((deck, index) => {
     
     ctx.fillRect(deck.x, deck.y, 80, 120)
 }) 
-
-game.start();
 
 
 document.addEventListener('keypress', (e) => {
