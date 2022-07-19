@@ -36,7 +36,13 @@ document.addEventListener('keydown', (e) => {
         higherButton.className = "higherButton";
         console.log(higherButton);
         higherButton.onclick = function () {
-            console.log('higher button clicked')
+            // push next card in array to the selected deck
+            decksArray[selected].cards.push(cardsArray[0]);
+            cardsArray.shift();
+            // remove pop up
+            // setTimeout(() => element.classList.toggle("hidden"), 100)
+            
+            
         }
 
         // create Lower button
@@ -61,7 +67,7 @@ document.addEventListener('keydown', (e) => {
 
 
 // TEST: press 'w' to display next card onto a pile
-document.addEventListener('keypress', (e) => {
+/* document.addEventListener('keypress', (e) => {
     if(e.code === 'KeyW'){
         decksArray[selected].cards.push(cardsArray[0]);
         cardsArray.shift();
@@ -71,4 +77,4 @@ document.addEventListener('keypress', (e) => {
         
         
     }
-})
+}) */

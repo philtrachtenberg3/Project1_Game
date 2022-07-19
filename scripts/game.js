@@ -57,19 +57,4 @@ start = () => {
 
 
 
-displayNextCard() {
-    let selected = -1;
-    decksArray.forEach((deck, index) => {
-    if(selected === index){
-        ctx.fillStyle = 'green';
-    } else{
-        ctx.fillStyle = 'red';
-    }
-    
-    ctx.fillRect(deck.x, deck.y, 80, 120)
-}) 
-}
-
-
-
 }
