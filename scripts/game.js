@@ -29,6 +29,9 @@ printCards = () => {
     this.decksArray.forEach((deck) => {     
         let lastCard = deck.cards[deck.cards.length-1]
         this.ctx.fillText(`${lastCard.name} : ${lastCard.suit}. Count: ${deck.cards.length}`, deck.x, deck.y)
+        // this.ctx.drawImage(this.lastCard.img, deck.x, deck.y);
+
+        // console.log(lastCard.img)
     })
 }
 

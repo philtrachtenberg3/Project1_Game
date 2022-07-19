@@ -11,7 +11,6 @@ document.addEventListener('keypress', (e) => {
             
             ctx.fillRect(deck.x, deck.y, 80, 120)
         })
-        console.log(selected);
     }
 })
 
@@ -39,17 +38,23 @@ document.addEventListener('keydown', (e) => {
             let lastCard = selectedPile.cards[selectedPile.cards.length - 1];
             ctx.fillText(`${lastCard.name} : ${lastCard.suit}. Count: ${selectedPile.cards.length}`, selectedPile.x, selectedPile.y)
             
-            
-            console.log(selectedPile.cards[selectedPile.cards.length - 2])
-            console.log(`initial card has value: ${selectedPile.cards[selectedPile.cards.length - 2].value}`)
-            console.log(selectedPile.cards[selectedPile.cards.length - 1])
-            console.log(`new card has value: ${selectedPile.cards[selectedPile.cards.length - 1].value}`)
-            // compare the new card to the previous card
+            // compare the new card to the previous card and return a message
             if (selectedPile.cards[selectedPile.cards.length - 1].value > selectedPile.cards[selectedPile.cards.length - 2].value) {
-                console.log('you are right!')
+                console.log('you are right!');
+                ctx.font = '36px serif'
+                ctx.fillStyle = 'green'
+                ctx.fillText('NICE!', 200, 50)
             } else if (selectedPile.cards[selectedPile.cards.length - 1].value < selectedPile.cards[selectedPile.cards.length - 2].value) {
                 console.log('nope, it is lower!')
-            } else console.log('nope, it is the same!')
+                ctx.font = '36px serif'
+                ctx.fillStyle = 'red'
+                ctx.fillText('Nooope', 200, 50)
+            } else {
+                console.log('nope, it is the same!')
+                ctx.font = '36px serif'
+                ctx.fillStyle = 'red'
+                ctx.fillText('OMG it was the same!', 200, 50)
+            }
 
         }
 
