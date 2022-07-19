@@ -29,7 +29,7 @@ printCards = () => {
     this.decksArray.forEach((deck) => {     
         let lastCard = deck.cards[deck.cards.length-1]   
         console.log(deck)
-        this.ctx.fillText(`${lastCard.name} : ${lastCard.suit}`, deck.x, deck.y)
+        this.ctx.fillText(`${lastCard.name} : ${lastCard.suit}. Count: ${deck.cards.length}`, deck.x, deck.y)
     })
 }
 
@@ -40,13 +40,36 @@ remainingCards() {
     this.ctx.fillText(`Remaining Cards: ${remainingCards}`, 700, 30);
 }
 
+/* turnOffPopUp() {
+    let popUpDisplay = document.getElementById("popUp");
+    popUpDisplay.classList.remove("popUp");
+} */
+
 start = () => {
     this.shuffleDeck();
     this.returnFirst9Cards();
     this.printCards();
     this.remainingCards();
+    // this.turnOffPopUp()
     console.log(this.cardsArray);
     console.log(this.decksArray);
 }
+
+
+
+displayNextCard() {
+    let selected = -1;
+    decksArray.forEach((deck, index) => {
+    if(selected === index){
+        ctx.fillStyle = 'green';
+    } else{
+        ctx.fillStyle = 'red';
+    }
+    
+    ctx.fillRect(deck.x, deck.y, 80, 120)
+}) 
+}
+
+
 
 }
