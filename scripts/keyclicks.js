@@ -19,62 +19,56 @@ document.addEventListener('keypress', (e) => {
 // Press 's' to bring up the higher/lower/even pop-up
 let popUpDisplay = document.getElementById("popUp");
 document.addEventListener('keydown', (e) => {
+    ctx.font = '18px serif'
+    ctx.fillStyle = 'black'
     if(e.code === 'KeyS'){
         // bring up the popup after pressing 's'
         const element = document.getElementById("popUp");
         element.classList.toggle("hidden");
-        
-        // create text for the popup
-        let popUpText = document.createElement('p');
-        popUpText.innerHTML = 'How will the next number compare?';
-        popUpDisplay.appendChild(popUpText);
 
         // create Higher button
-        let higherButton = document.createElement('button')
-        higherButton.innerHTML = 'Higher';
-        popUpDisplay.appendChild(higherButton);
-        higherButton.className = "higherButton";
-        console.log(higherButton);
+        let higherButton = document.getElementById('higherButton')
         higherButton.onclick = function () {
+            let selectedPile = decksArray[selected];
             // push next card in array to the selected deck
-            decksArray[selected].cards.push(cardsArray[0]);
+            selectedPile.cards.push(cardsArray[0]);
             cardsArray.shift();
-            // remove pop up
-            // setTimeout(() => element.classList.toggle("hidden"), 100)
+            // move popup after click on an option
+            setTimeout(() => element.classList.toggle("hidden"), 100);
+            //add the next card in the deck to the selected pile
+            let lastCard = selectedPile.cards[selectedPile.cards.length - 1];
+            ctx.fillText(`${lastCard.name} : ${lastCard.suit}. Count: ${selectedPile.cards.length}`, selectedPile.x, selectedPile.y)
             
             
+            console.log(selectedPile.cards[selectedPile.cards.length - 2])
+            console.log(`initial card has value: ${selectedPile.cards[selectedPile.cards.length - 2].value}`)
+            console.log(selectedPile.cards[selectedPile.cards.length - 1])
+            console.log(`new card has value: ${selectedPile.cards[selectedPile.cards.length - 1].value}`)
+            // compare the new card to the previous card
+            if (selectedPile.cards[selectedPile.cards.length - 1].value > selectedPile.cards[selectedPile.cards.length - 2].value) {
+                console.log('you are right!')
+            } else if (selectedPile.cards[selectedPile.cards.length - 1].value < selectedPile.cards[selectedPile.cards.length - 2].value) {
+                console.log('nope, it is lower!')
+            } else console.log('nope, it is the same!')
+
         }
 
         // create Lower button
-        let lowerButton = document.createElement('button')
-        lowerButton.innerHTML = 'Lower';
-        popUpDisplay.appendChild(lowerButton);
-        lowerButton.className = "lowerButton";
+        let lowerButton = document.getElementById('lowerButton')
         lowerButton.onclick = function () {
-            console.log('lower button clicked')
+            // push next card in array to the selected deck
+            decksArray[selected].cards.push(cardsArray[0]);
+            cardsArray.shift();
+            setTimeout(() => element.classList.toggle("hidden"), 100)
         }
 
         // create Even button
-        let evenButton = document.createElement('button')
-        evenButton.innerHTML = 'Even';
-        popUpDisplay.appendChild(evenButton);
-        evenButton.className = "evenButton";
+        let evenButton = document.getElementById('evenButton')
         evenButton.onclick = function () {
-            console.log('even button clicked')
-        }
+            // push next card in array to the selected deck
+            decksArray[selected].cards.push(cardsArray[0]);
+            cardsArray.shift();
+            setTimeout(() => element.classList.toggle("hidden"), 100)
     }
-})
-
-
-// TEST: press 'w' to display next card onto a pile
-/* document.addEventListener('keypress', (e) => {
-    if(e.code === 'KeyW'){
-        decksArray[selected].cards.push(cardsArray[0]);
-        cardsArray.shift();
-        console.log(cardsArray)
-        console.log(decksArray)
-
-        
-        
-    }
-}) */
+  }
+});
