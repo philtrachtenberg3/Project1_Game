@@ -47,8 +47,7 @@ document.addEventListener('keydown', (e) => {
             
             // compare the new card to the previous card and return a message
             if (selectedPile.cards[selectedPile.cards.length - 1].value > selectedPile.cards[selectedPile.cards.length - 2].value) {
-                //slice unique card
-                
+                //return "positive" message
                 console.log('you are right!');
                 ctx.font = '36px serif'
                 ctx.fillStyle = 'white'
@@ -56,26 +55,42 @@ document.addEventListener('keydown', (e) => {
                 ctx.fillStyle = 'green'
                 ctx.fillText('NICE!', 200, 50)
             } else if (selectedPile.cards[selectedPile.cards.length - 1].value < selectedPile.cards[selectedPile.cards.length - 2].value) {
-                //slice whole deck
-                decksArray.slice(selectedPile, 1)
-
-                console.log(selectedPile.x)
+                //return "negative" message
                 ctx.clearRect(selectedPile.x, selectedPile.y, 80, 120)
                 ctx.font = '36px serif'
                 ctx.fillStyle = 'white'
                 ctx.fillRect(200,20,200,50)
                 ctx.fillStyle = 'red'
                 ctx.fillText('Nooope', 200, 50)
+
+                // remove pile
+                setTimeout(() => {
+                const imgBackOfCard = new Image();
+                imgBackOfCard.src = "/docs/assets/images/backOfCard_blue.png"
+                    imgBackOfCard.onload = () => {
+                    ctx.drawImage(imgBackOfCard, selectedPile.x, selectedPile.y, 80, 120);
+
+                } }, 1000);
+                
             } else {
                 decksArray.slice(selectedPile, 1);
                 ctx.clearRect(selectedPile.x, selectedPile.y, 80, 120);
-                //slice whole deck
+                //return "negative" message
                 console.log('nope, it is the same!')
                 ctx.font = '36px serif'
                 ctx.fillStyle = 'white'
                 ctx.fillRect(200,20,200,50)
                 ctx.fillStyle = 'red'
                 ctx.fillText('OMG it was the same!', 200, 50)
+
+                // remove pile
+                setTimeout(() => {
+                    const imgBackOfCard = new Image();
+                    imgBackOfCard.src = "/docs/assets/images/backOfCard_blue.png"
+                        imgBackOfCard.onload = () => {
+                        ctx.drawImage(imgBackOfCard, selectedPile.x, selectedPile.y, 80, 120);
+    
+                    } }, 1000);
             }
 
             console.log(`the original value is: ${selectedPile.cards[selectedPile.cards.length - 2].value}`);
@@ -103,6 +118,7 @@ document.addEventListener('keydown', (e) => {
             
             // compare the new card to the previous card and return a message
             if (selectedPile.cards[selectedPile.cards.length - 1].value < selectedPile.cards[selectedPile.cards.length - 2].value) {
+                // return "positive" message
                 console.log('you are right!');
                 ctx.font = '36px serif'
                 ctx.fillStyle = 'white'
@@ -110,19 +126,40 @@ document.addEventListener('keydown', (e) => {
                 ctx.fillStyle = 'green'
                 ctx.fillText('NICE!', 200, 50)
             } else if (selectedPile.cards[selectedPile.cards.length - 1].value > selectedPile.cards[selectedPile.cards.length - 2].value) {
+                // return "negative" message
                 console.log('nope, it is higher!')
                 ctx.font = '36px serif'
                 ctx.fillStyle = 'white'
                 ctx.fillRect(200,20,200,50)
                 ctx.fillStyle = 'red'
                 ctx.fillText('Nooope', 200, 50)
+
+                // remove pile
+                setTimeout(() => {
+                    const imgBackOfCard = new Image();
+                    imgBackOfCard.src = "/docs/assets/images/backOfCard_blue.png"
+                        imgBackOfCard.onload = () => {
+                        ctx.drawImage(imgBackOfCard, selectedPile.x, selectedPile.y, 80, 120);
+    
+                    } }, 1000);
             } else {
+                // return "negative" message
+                
                 console.log('nope, it is the same!')
                 ctx.font = '36px serif'
                 ctx.fillStyle = 'white'
                 ctx.fillRect(200,20,200,50)
                 ctx.fillStyle = 'red'
                 ctx.fillText('OMG it was the same!', 200, 50)
+
+                // remove pile
+                setTimeout(() => {
+                    const imgBackOfCard = new Image();
+                    imgBackOfCard.src = "/docs/assets/images/backOfCard_blue.png"
+                        imgBackOfCard.onload = () => {
+                        ctx.drawImage(imgBackOfCard, selectedPile.x, selectedPile.y, 80, 120);
+    
+                    } }, 1000);
             }
 
             console.log(`the original value is: ${selectedPile.cards[selectedPile.cards.length - 2].value}`);
@@ -151,6 +188,7 @@ document.addEventListener('keydown', (e) => {
             
             // compare the new card to the previous card and return a message
             if (selectedPile.cards[selectedPile.cards.length - 1].value === selectedPile.cards[selectedPile.cards.length - 2].value) {
+                // return "positive" message
                 console.log('you are right!');
                 ctx.font = '36px serif'
                 ctx.fillStyle = 'white'
@@ -158,11 +196,21 @@ document.addEventListener('keydown', (e) => {
                 ctx.fillStyle = 'green'
                 ctx.fillText('Are you serious?!', 200, 50)
             } else {
+                // return "negative" message
                 ctx.font = '36px serif'
                 ctx.fillStyle = 'white'
                 ctx.fillRect(200,20,200,50)
                 ctx.fillStyle = 'red'
                 ctx.fillText("lol nope, it's not the same", 200, 50)
+
+                // remove pile
+                setTimeout(() => {
+                    const imgBackOfCard = new Image();
+                    imgBackOfCard.src = "/docs/assets/images/backOfCard_blue.png"
+                        imgBackOfCard.onload = () => {
+                        ctx.drawImage(imgBackOfCard, selectedPile.x, selectedPile.y, 80, 120);
+    
+                    } }, 1000);
             }
             console.log(`the original value is: ${selectedPile.cards[selectedPile.cards.length - 2].value}`);
             console.log(`the new value is: ${selectedPile.cards[selectedPile.cards.length - 1].value}`);
