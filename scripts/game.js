@@ -79,8 +79,8 @@ this.start();
     console.log(this.decksArray);
   };
 
-  remainingCardsCheck() {
-    if (cardsArray.length === 40) {
+  winCheck() {
+    if (cardsArray.length === 0) {
         this.ctx.clearRect(0, 0, 900, 600);
         this.ctx.fillStyle = 'green';
         ctx.font = "bold 42px sans-serif";
@@ -88,8 +88,18 @@ this.start();
     }
 }
 
-win = () => {
-    this.remainingCardsCheck();
+lossCheck() {
+  if (lossTracker === 0) {
+        this.ctx.clearRect(0, 0, 900, 600);
+        this.ctx.fillStyle = 'red';
+        ctx.font = "bold 42px sans-serif";
+        this.ctx.fillText(`YOU LOSE MOTHERFUCKER!!!`, 150, 80);
+  }
+}
+
+winOrLose = () => {
+    this.winCheck();
+    this.lossCheck();
 }
 
 }

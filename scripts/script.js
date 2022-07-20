@@ -22,11 +22,12 @@ window.onload = (() => {
 let selected = -1;
 decksArray.forEach((deck, index) => {
     if(selected === index){
-        // ctx.lineWidth = 5;
+        ctx.lineWidth = 3;
         ctx.strokeStyle = 'green';
     } else{
+        ctx.lineWidth = 3;
         ctx.strokeStyle = 'red';
     }
-    
+
     ctx.strokeRect(deck.x, deck.y, 90, 130)
 }) 

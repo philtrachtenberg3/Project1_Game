@@ -1,15 +1,18 @@
+let selectedPileIndicator;
+let lossTracker = 9;
+
 // Press 'd' to move right
 document.addEventListener('keypress', (e) => {
     if(e.code === 'KeyD'){
         selected = (selected + 1) % 9
         decksArray.forEach((deck, index) => {
             if(selected === index){
-                ctx.lineWidth = 5;
+                ctx.lineWidth = 3;
                 ctx.strokeStyle = 'green';
             } else {
                 ctx.strokeStyle = '#000';
                 ctx.setLineDash([])
-                ctx.lineWidth = 1;
+                ctx.lineWidth = 0;
                 ctx.strokeStyle = 'red';
             }
             ctx.strokeRect(deck.x, deck.y, 90, 130)
@@ -63,6 +66,9 @@ document.addEventListener('keydown', (e) => {
                 ctx.fillStyle = 'red'
                 ctx.fillText('Nooope', 200, 50)
 
+                selectedPileIndicator = -1;
+                lossTracker -= 1;
+
                 // remove pile
                 setTimeout(() => {
                 const imgBackOfCard = new Image();
@@ -83,6 +89,9 @@ document.addEventListener('keydown', (e) => {
                 ctx.fillStyle = 'red'
                 ctx.fillText('OMG it was the same!', 200, 50)
 
+                selectedPileIndicator = -1;
+                lossTracker -= 1;
+
                 // remove pile
                 setTimeout(() => {
                     const imgBackOfCard = new Image();
@@ -95,7 +104,7 @@ document.addEventListener('keydown', (e) => {
 
             console.log(`the original value is: ${selectedPile.cards[selectedPile.cards.length - 2].value}`);
             console.log(`the new value is: ${selectedPile.cards[selectedPile.cards.length - 1].value}`);
-            game.win();
+            game.winOrLose();
         }
 
         // create Lower button
@@ -134,6 +143,9 @@ document.addEventListener('keydown', (e) => {
                 ctx.fillStyle = 'red'
                 ctx.fillText('Nooope', 200, 50)
 
+                selectedPileIndicator = -1;
+                lossTracker -= 1;
+
                 // remove pile
                 setTimeout(() => {
                     const imgBackOfCard = new Image();
@@ -152,6 +164,9 @@ document.addEventListener('keydown', (e) => {
                 ctx.fillStyle = 'red'
                 ctx.fillText('OMG it was the same!', 200, 50)
 
+                selectedPileIndicator = -1;
+                lossTracker -= 1;
+
                 // remove pile
                 setTimeout(() => {
                     const imgBackOfCard = new Image();
@@ -164,7 +179,7 @@ document.addEventListener('keydown', (e) => {
 
             console.log(`the original value is: ${selectedPile.cards[selectedPile.cards.length - 2].value}`);
             console.log(`the new value is: ${selectedPile.cards[selectedPile.cards.length - 1].value}`);
-            game.win();
+            game.winOrLose();
         }
 
 
@@ -203,6 +218,9 @@ document.addEventListener('keydown', (e) => {
                 ctx.fillStyle = 'red'
                 ctx.fillText("lol nope, it's not the same", 200, 50)
 
+                selectedPileIndicator = -1;
+                lossTracker -= 1;
+
                 // remove pile
                 setTimeout(() => {
                     const imgBackOfCard = new Image();
@@ -214,7 +232,7 @@ document.addEventListener('keydown', (e) => {
             }
             console.log(`the original value is: ${selectedPile.cards[selectedPile.cards.length - 2].value}`);
             console.log(`the new value is: ${selectedPile.cards[selectedPile.cards.length - 1].value}`);
-            game.win();
+            game.winOrLose();
         }        
 
   }
