@@ -30,7 +30,7 @@ body {
     background-color: white;
     position: fixed;
     top: 100px;
-    left: 10px;
+    left: 100px;
     margin: 10px;
     padding: 10px;
     display: flex;
@@ -43,10 +43,19 @@ body {
     visibility: hidden; 
 }
 
-#start {
-    position: fixed;
+#startBox {
+    /* position: fixed;
     left: 450px;
-    top: 5px;
+    top: 5px; */
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+#start {
+    width: 200px;
+    padding: 5px;
+    margin-top: 30px;
 }
 
 #PopUp > button {

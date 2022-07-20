@@ -42,38 +42,102 @@ document.addEventListener('keydown', (e) => {
             if (selectedPile.cards[selectedPile.cards.length - 1].value > selectedPile.cards[selectedPile.cards.length - 2].value) {
                 console.log('you are right!');
                 ctx.font = '36px serif'
+                ctx.fillStyle = 'white'
+                ctx.fillRect(200,20,200,50)
                 ctx.fillStyle = 'green'
                 ctx.fillText('NICE!', 200, 50)
             } else if (selectedPile.cards[selectedPile.cards.length - 1].value < selectedPile.cards[selectedPile.cards.length - 2].value) {
                 console.log('nope, it is lower!')
                 ctx.font = '36px serif'
+                ctx.fillStyle = 'white'
+                ctx.fillRect(200,20,200,50)
                 ctx.fillStyle = 'red'
                 ctx.fillText('Nooope', 200, 50)
             } else {
                 console.log('nope, it is the same!')
                 ctx.font = '36px serif'
+                ctx.fillStyle = 'white'
+                ctx.fillRect(200,20,200,50)
                 ctx.fillStyle = 'red'
                 ctx.fillText('OMG it was the same!', 200, 50)
             }
 
+            console.log(`the original value is: ${selectedPile.cards[selectedPile.cards.length - 2].value}`);
+            console.log(`the new value is: ${selectedPile.cards[selectedPile.cards.length - 1].value}`);
         }
 
         // create Lower button
         let lowerButton = document.getElementById('lowerButton')
         lowerButton.onclick = function () {
+            let selectedPile = decksArray[selected];
             // push next card in array to the selected deck
-            decksArray[selected].cards.push(cardsArray[0]);
+            selectedPile.cards.push(cardsArray[0]);
             cardsArray.shift();
-            setTimeout(() => element.classList.toggle("hidden"), 100)
+            // move popup after click on an option
+            setTimeout(() => element.classList.toggle("hidden"), 100);
+            //add the next card in the deck to the selected pile
+            let lastCard = selectedPile.cards[selectedPile.cards.length - 1];
+            ctx.fillText(`${lastCard.name} : ${lastCard.suit}. Count: ${selectedPile.cards.length}`, selectedPile.x, selectedPile.y)
+            
+            // compare the new card to the previous card and return a message
+            if (selectedPile.cards[selectedPile.cards.length - 1].value < selectedPile.cards[selectedPile.cards.length - 2].value) {
+                console.log('you are right!');
+                ctx.font = '36px serif'
+                ctx.fillStyle = 'white'
+                ctx.fillRect(200,20,200,50)
+                ctx.fillStyle = 'green'
+                ctx.fillText('NICE!', 200, 50)
+            } else if (selectedPile.cards[selectedPile.cards.length - 1].value > selectedPile.cards[selectedPile.cards.length - 2].value) {
+                console.log('nope, it is higher!')
+                ctx.font = '36px serif'
+                ctx.fillStyle = 'white'
+                ctx.fillRect(200,20,200,50)
+                ctx.fillStyle = 'red'
+                ctx.fillText('Nooope', 200, 50)
+            } else {
+                console.log('nope, it is the same!')
+                ctx.font = '36px serif'
+                ctx.fillStyle = 'white'
+                ctx.fillRect(200,20,200,50)
+                ctx.fillStyle = 'red'
+                ctx.fillText('OMG it was the same!', 200, 50)
+            }
+
+            console.log(`the original value is: ${selectedPile.cards[selectedPile.cards.length - 2].value}`);
+            console.log(`the new value is: ${selectedPile.cards[selectedPile.cards.length - 1].value}`);
         }
+
 
         // create Even button
         let evenButton = document.getElementById('evenButton')
         evenButton.onclick = function () {
+            let selectedPile = decksArray[selected];
             // push next card in array to the selected deck
-            decksArray[selected].cards.push(cardsArray[0]);
+            selectedPile.cards.push(cardsArray[0]);
             cardsArray.shift();
-            setTimeout(() => element.classList.toggle("hidden"), 100)
-    }
+            // move popup after click on an option
+            setTimeout(() => element.classList.toggle("hidden"), 100);
+            //add the next card in the deck to the selected pile
+            let lastCard = selectedPile.cards[selectedPile.cards.length - 1];
+            ctx.fillText(`${lastCard.name} : ${lastCard.suit}. Count: ${selectedPile.cards.length}`, selectedPile.x, selectedPile.y)
+            
+            // compare the new card to the previous card and return a message
+            if (selectedPile.cards[selectedPile.cards.length - 1].value === selectedPile.cards[selectedPile.cards.length - 2].value) {
+                console.log('you are right!');
+                ctx.font = '36px serif'
+                ctx.fillStyle = 'white'
+                ctx.fillRect(200,20,200,50)
+                ctx.fillStyle = 'green'
+                ctx.fillText('Are you serious?!', 200, 50)
+            } else {
+                ctx.font = '36px serif'
+                ctx.fillStyle = 'white'
+                ctx.fillRect(200,20,200,50)
+                ctx.fillStyle = 'red'
+                ctx.fillText("lol nope, it's not the same", 200, 50)
+            }
+            console.log(`the original value is: ${selectedPile.cards[selectedPile.cards.length - 2].value}`);
+            console.log(`the new value is: ${selectedPile.cards[selectedPile.cards.length - 1].value}`);
+        }
   }
 });

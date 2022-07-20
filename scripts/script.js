@@ -23,3 +23,6 @@ decksArray.forEach((deck, index) => {
     
     ctx.fillRect(deck.x, deck.y, 80, 120)
 }) 
+
+// console.log(typeof cardsArray[1].img);
+// ctx.drawImage(cardsArray[1].img, 50, 50);
