@@ -4,11 +4,15 @@ document.addEventListener('keypress', (e) => {
         selected = (selected + 1) % 9
         decksArray.forEach((deck, index) => {
             if(selected === index){
+                ctx.lineWidth = 5;
                 ctx.strokeStyle = 'green';
             } else {
+                ctx.strokeStyle = '#000';
+                ctx.setLineDash([])
+                ctx.lineWidth = 1;
                 ctx.strokeStyle = 'red';
             }
-            ctx.strokeRect(deck.x, deck.y, 80, 120)
+            ctx.strokeRect(deck.x, deck.y, 90, 130)
         })
     }
 })
@@ -35,7 +39,11 @@ document.addEventListener('keydown', (e) => {
             setTimeout(() => element.classList.toggle("hidden"), 100);
             //add the next card in the deck to the selected pile
             let lastCard = selectedPile.cards[selectedPile.cards.length - 1];
-            ctx.fillText(`${lastCard.name} : ${lastCard.suit}. Count: ${selectedPile.cards.length}`, selectedPile.x, selectedPile.y)
+            const img = new Image();
+            img.src = lastCard.img
+            img.onload = () => {
+                ctx.drawImage(img, selectedPile.x, selectedPile.y, 80, 120);
+            }; 
             
             // compare the new card to the previous card and return a message
             if (selectedPile.cards[selectedPile.cards.length - 1].value > selectedPile.cards[selectedPile.cards.length - 2].value) {
@@ -72,6 +80,7 @@ document.addEventListener('keydown', (e) => {
 
             console.log(`the original value is: ${selectedPile.cards[selectedPile.cards.length - 2].value}`);
             console.log(`the new value is: ${selectedPile.cards[selectedPile.cards.length - 1].value}`);
+            game.win();
         }
 
         // create Lower button
@@ -81,11 +90,16 @@ document.addEventListener('keydown', (e) => {
             // push next card in array to the selected deck
             selectedPile.cards.push(cardsArray[0]);
             cardsArray.shift();
+            game.remainingCards();
             // move popup after click on an option
             setTimeout(() => element.classList.toggle("hidden"), 100);
             //add the next card in the deck to the selected pile
             let lastCard = selectedPile.cards[selectedPile.cards.length - 1];
-            ctx.fillText(`${lastCard.name} : ${lastCard.suit}. Count: ${selectedPile.cards.length}`, selectedPile.x, selectedPile.y)
+            const img = new Image();
+            img.src = lastCard.img
+            img.onload = () => {
+                ctx.drawImage(img, selectedPile.x, selectedPile.y, 80, 120);
+            }; 
             
             // compare the new card to the previous card and return a message
             if (selectedPile.cards[selectedPile.cards.length - 1].value < selectedPile.cards[selectedPile.cards.length - 2].value) {
@@ -113,6 +127,7 @@ document.addEventListener('keydown', (e) => {
 
             console.log(`the original value is: ${selectedPile.cards[selectedPile.cards.length - 2].value}`);
             console.log(`the new value is: ${selectedPile.cards[selectedPile.cards.length - 1].value}`);
+            game.win();
         }
 
 
@@ -123,11 +138,16 @@ document.addEventListener('keydown', (e) => {
             // push next card in array to the selected deck
             selectedPile.cards.push(cardsArray[0]);
             cardsArray.shift();
+            game.remainingCards();
             // move popup after click on an option
             setTimeout(() => element.classList.toggle("hidden"), 100);
             //add the next card in the deck to the selected pile
             let lastCard = selectedPile.cards[selectedPile.cards.length - 1];
-            ctx.fillText(`${lastCard.name} : ${lastCard.suit}. Count: ${selectedPile.cards.length}`, selectedPile.x, selectedPile.y)
+            const img = new Image();
+            img.src = lastCard.img
+            img.onload = () => {
+                ctx.drawImage(img, selectedPile.x, selectedPile.y, 80, 120);
+            }; 
             
             // compare the new card to the previous card and return a message
             if (selectedPile.cards[selectedPile.cards.length - 1].value === selectedPile.cards[selectedPile.cards.length - 2].value) {
@@ -146,6 +166,9 @@ document.addEventListener('keydown', (e) => {
             }
             console.log(`the original value is: ${selectedPile.cards[selectedPile.cards.length - 2].value}`);
             console.log(`the new value is: ${selectedPile.cards[selectedPile.cards.length - 1].value}`);
-        }
+            game.win();
+        }        
+
   }
+
 });

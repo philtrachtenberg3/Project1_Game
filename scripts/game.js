@@ -29,9 +29,6 @@ class Game {
     //this.ctx.fillStyle = 'black'
     this.decksArray.forEach((deck)  => {
       let lastCard = deck.cards[deck.cards.length - 1];
-      this.ctx.fillText(
-        `${lastCard.name} : ${lastCard.suit}. Count: ${deck.cards.length}`, deck.x, deck.y
-      );
       
     const img = new Image();
     img.src = lastCard.img
@@ -81,4 +78,18 @@ this.start();
     console.log(this.cardsArray);
     console.log(this.decksArray);
   };
+
+  remainingCardsCheck() {
+    if (cardsArray.length === 40) {
+        this.ctx.clearRect(0, 0, 900, 600);
+        this.ctx.fillStyle = 'green';
+        ctx.font = "bold 42px sans-serif";
+        this.ctx.fillText(`YOU WIN!!!`, 350, 80);
+    }
+}
+
+win = () => {
+    this.remainingCardsCheck();
+}
+
 }

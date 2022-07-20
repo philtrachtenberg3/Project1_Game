@@ -22,6 +22,7 @@ window.onload = (() => {
 let selected = -1;
 decksArray.forEach((deck, index) => {
     if(selected === index){
+        // ctx.lineWidth = 5;
         ctx.strokeStyle = 'green';
     } else{
         ctx.strokeStyle = 'red';
@@ -29,6 +30,3 @@ decksArray.forEach((deck, index) => {
     
     ctx.strokeRect(deck.x, deck.y, 90, 130)
 }) 
-
-// console.log(typeof cardsArray[1].img);
-// ctx.drawImage(cardsArray[1].img, 50, 50);
