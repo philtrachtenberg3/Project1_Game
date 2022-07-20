@@ -1,5 +1,5 @@
 // define entire deck
-let cardsArray = [
+const originalCards = [
   {name: "2", value: 2, suit: "Hearts", img: "/docs/assets/images/2hearts.png"},
   {name: "2", value: 2, suit: "Diamonds", img: "/docs/assets/images/2diamonds.png"},
   {name: "2", value: 2, suit: "Clubs", img: "/docs/assets/images/2clubs.png"},
@@ -54,7 +54,7 @@ let cardsArray = [
   {name: "A", value: 14, suit: "Spades", img: "/docs/assets/images/aspades.png"} 
 ];
 
-let decksArray = [
+let originalDecks = [
   {x: 120, y:100, cards: []},
   {x: 420, y:100, cards: []},
   {x: 720, y:100, cards: []},
@@ -65,3 +65,6 @@ let decksArray = [
   {x: 420, y:450, cards: []},
   {x: 720, y:450, cards: []}
 ]
+
+const cardsArray = [...originalCards];
+const decksArray = [...originalDecks];
