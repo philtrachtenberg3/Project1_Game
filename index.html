@@ -12,14 +12,35 @@
         <canvas id="canvas" width="900" height="600">
         </canvas>
     </section>
+    <section id="popUpLocation">
         <div class="hidden" id="popUp">
             <p>How will the next number compare?</p>
             <button id="higherButton">Higher</button>
             <button id="lowerButton">Lower</button>
             <button id="evenButton">Even</button>
         </div>
+    </section>
+    <section id="instructions">
+        <div id="instructions__box">
+            <h1 id="instructions__box--header">How To Play</h1>
+            <h3 id="instructions__box--purpose">Purpose: <span>Finish the deck of cards before all piles disappear!</span></h3> 
+        </div>
+        <div id="instructions__text">
+            <ul>
+                <li>The first 9 cards from the deck are placed face-up on the board</li>
+                <li>You must:</li>
+                    <ol>
+                        <li>Choose a card on the board (ex. A)</li>
+                        <li>Indicate whether you think the next card will be HIGHER, LOWER, OR EVEN than the card you selected</li>
+                    </ol>
+            </ul>
+            <p>If you are correct, the next person goes!</p>
+            <p>if you are incorrect, the pile disappears :-(</p>
+            <p>Good luck!</p>
+        </div>
+    </section>
         <div id="startBox">
-            <button id="start">Start game</button>
+            <button id="start">Shuffle & Start!</button>
         </div>
     <script src="./scripts/arrays.js"></script>
     <script src="./scripts/keyclicks.js"></script>

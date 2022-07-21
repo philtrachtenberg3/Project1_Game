@@ -11,7 +11,7 @@ document.addEventListener('keypress', (e) => {
                 ctx.strokeStyle = 'green';
             } else {
                 ctx.strokeStyle = '#000';
-                ctx.setLineDash([])
+                ctx.setLineDash([]);
                 ctx.lineWidth = 0;
                 ctx.strokeStyle = 'red';
             }
@@ -38,14 +38,14 @@ document.addEventListener('keydown', (e) => {
             selectedPile.cards.push(cardsArray[0]);
             cardsArray.shift();
             game.remainingCards();
-            // move popup after click on an option
+            // remove popup after click on an option
             setTimeout(() => element.classList.toggle("hidden"), 100);
             //add the next card in the deck to the selected pile
             let lastCard = selectedPile.cards[selectedPile.cards.length - 1];
             const img = new Image();
             img.src = lastCard.img
             img.onload = () => {
-                ctx.drawImage(img, selectedPile.x, selectedPile.y, 80, 120);
+                ctx.drawImage(img, (selectedPile.x + 2), selectedPile.y, 80, 120);
             }; 
             
             // compare the new card to the previous card and return a message
@@ -59,7 +59,7 @@ document.addEventListener('keydown', (e) => {
                 ctx.fillText('NICE!', 200, 50)
             } else if (selectedPile.cards[selectedPile.cards.length - 1].value < selectedPile.cards[selectedPile.cards.length - 2].value) {
                 //return "negative" message
-                ctx.clearRect(selectedPile.x, selectedPile.y, 80, 120)
+                ctx.clearRect((selectedPile.x + 2), selectedPile.y, 80, 120)
                 ctx.font = '36px serif'
                 ctx.fillStyle = 'white'
                 ctx.fillRect(200,20,200,50)
@@ -74,13 +74,13 @@ document.addEventListener('keydown', (e) => {
                 const imgBackOfCard = new Image();
                 imgBackOfCard.src = "/docs/assets/images/backOfCard_blue.png"
                     imgBackOfCard.onload = () => {
-                    ctx.drawImage(imgBackOfCard, selectedPile.x, selectedPile.y, 80, 120);
+                    ctx.drawImage(imgBackOfCard, (selectedPile.x + 2), selectedPile.y, 80, 120);
 
                 } }, 1000);
                 
             } else {
                 decksArray.slice(selectedPile, 1);
-                ctx.clearRect(selectedPile.x, selectedPile.y, 80, 120);
+                ctx.clearRect((selectedPile.x + 2), selectedPile.y, 80, 120);
                 //return "negative" message
                 console.log('nope, it is the same!')
                 ctx.font = '36px serif'
@@ -97,7 +97,7 @@ document.addEventListener('keydown', (e) => {
                     const imgBackOfCard = new Image();
                     imgBackOfCard.src = "/docs/assets/images/backOfCard_blue.png"
                         imgBackOfCard.onload = () => {
-                        ctx.drawImage(imgBackOfCard, selectedPile.x, selectedPile.y, 80, 120);
+                        ctx.drawImage(imgBackOfCard, (selectedPile.x + 2), selectedPile.y, 80, 120);
     
                     } }, 1000);
             }
@@ -122,7 +122,7 @@ document.addEventListener('keydown', (e) => {
             const img = new Image();
             img.src = lastCard.img
             img.onload = () => {
-                ctx.drawImage(img, selectedPile.x, selectedPile.y, 80, 120);
+                ctx.drawImage(img, (selectedPile.x + 2), selectedPile.y, 80, 120);
             }; 
             
             // compare the new card to the previous card and return a message
@@ -151,7 +151,7 @@ document.addEventListener('keydown', (e) => {
                     const imgBackOfCard = new Image();
                     imgBackOfCard.src = "/docs/assets/images/backOfCard_blue.png"
                         imgBackOfCard.onload = () => {
-                        ctx.drawImage(imgBackOfCard, selectedPile.x, selectedPile.y, 80, 120);
+                        ctx.drawImage(imgBackOfCard, (selectedPile.x + 2), selectedPile.y, 80, 120);
     
                     } }, 1000);
             } else {
@@ -172,7 +172,7 @@ document.addEventListener('keydown', (e) => {
                     const imgBackOfCard = new Image();
                     imgBackOfCard.src = "/docs/assets/images/backOfCard_blue.png"
                         imgBackOfCard.onload = () => {
-                        ctx.drawImage(imgBackOfCard, selectedPile.x, selectedPile.y, 80, 120);
+                        ctx.drawImage(imgBackOfCard, (selectedPile.x + 2), selectedPile.y, 80, 120);
     
                     } }, 1000);
             }
@@ -198,7 +198,7 @@ document.addEventListener('keydown', (e) => {
             const img = new Image();
             img.src = lastCard.img
             img.onload = () => {
-                ctx.drawImage(img, selectedPile.x, selectedPile.y, 80, 120);
+                ctx.drawImage(img, (selectedPile.x + 2), selectedPile.y, 80, 120);
             }; 
             
             // compare the new card to the previous card and return a message
@@ -226,7 +226,7 @@ document.addEventListener('keydown', (e) => {
                     const imgBackOfCard = new Image();
                     imgBackOfCard.src = "/docs/assets/images/backOfCard_blue.png"
                         imgBackOfCard.onload = () => {
-                        ctx.drawImage(imgBackOfCard, selectedPile.x, selectedPile.y, 80, 120);
+                        ctx.drawImage(imgBackOfCard, (selectedPile.x + 2), selectedPile.y, 80, 120);
     
                     } }, 1000);
             }

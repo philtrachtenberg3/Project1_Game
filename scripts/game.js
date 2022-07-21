@@ -34,7 +34,7 @@ class Game {
     img.src = lastCard.img
     
     img.onload = () => {
-        this.ctx.drawImage(img, deck.x, deck.y, 80, 120);
+        this.ctx.drawImage(img, (deck.x + 5), (deck.y + 5), 80, 120);
      }; 
     });
   };
@@ -93,7 +93,15 @@ lossCheck() {
         this.ctx.clearRect(0, 0, 900, 600);
         this.ctx.fillStyle = 'red';
         ctx.font = "bold 42px sans-serif";
-        this.ctx.fillText(`YOU LOSE MOTHERFUCKER!!!`, 150, 80);
+        this.ctx.fillText(`BETTER LUCK NEXT TIME!!!`, 150, 80);
+
+        setTimeout(() => {
+          const imgLoss = new Image();
+          imgLoss.src = "/docs/assets/images/crying_kid.jpeg"
+              imgLoss.onload = () => {
+              ctx.drawImage(imgLoss, 80, 100, 700, 450);
+
+          } }, 2000);
   }
 }
 
