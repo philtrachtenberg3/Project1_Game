@@ -55,14 +55,16 @@ class Game {
     console.log(this.decksArray);
 
     let selected = -1;
-    this.decksArray.forEach((deck, index) => {
+    decksArray.forEach((deck, index) => {
     if(selected === index){
-        this.ctx.fillStyle = 'green';
-    } else{
-        this.ctx.fillStyle = 'red';
+        ctx.lineWidth = 3;
+        ctx.strokeStyle = 'green';
+    } else {
+        ctx.lineWidth = 3;
+        ctx.strokeStyle = 'red';
     }
-    
-    this.ctx.fillRect(deck.x, deck.y, 80, 120)
+
+    ctx.strokeRect(deck.x, deck.y, 90, 130)
 
 }) 
 
