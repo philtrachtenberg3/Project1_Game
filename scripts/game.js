@@ -85,6 +85,14 @@ this.start();
         this.ctx.fillStyle = 'green';
         ctx.font = "bold 42px sans-serif";
         this.ctx.fillText(`YOU WIN!!!`, 350, 80);
+
+        setTimeout(() => {
+          const imgWin = new Image();
+          imgWin.src = "/docs/assets/images/excited_picture.jpeg"
+              imgWin.onload = () => {
+              ctx.drawImage(imgWin, 80, 100, 700, 450);
+
+          } }, 2000);
     }
 }
 
@@ -97,7 +105,7 @@ lossCheck() {
 
         setTimeout(() => {
           const imgLoss = new Image();
-          imgLoss.src = "/docs/assets/images/crying_kid.jpeg"
+          imgLoss.src = "/docs/assets/images/sad_dog.webp"
               imgLoss.onload = () => {
               ctx.drawImage(imgLoss, 80, 100, 700, 450);
 

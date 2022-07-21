@@ -81,7 +81,7 @@ body {
     top: 115px;
     left: 15px;
     border: 2px solid black;
-    background-color: white;
+    background-color: rgb(244, 244, 244);
     width: 450px;
     height: 500px;
 }
@@ -110,4 +110,53 @@ body {
 #instructions__text {
     margin-left: 20px;
     margin-top: 20px;
+}
+
+ul {
+    line-height: 20px;
+}
+
+ol {
+    margin-left: 40px;
+}
+
+#instructions__text--final {
+    margin-top: 15px;
+}
+
+#instructions__text--ifCorrect {
+    color: green;
+    font-weight: bold;
+}
+
+#instructions__text--ifIncorrect {
+    color: red;
+    font-weight: bold;
+}
+
+#goodLuck {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+hr {
+    margin-top: 10px;
+    width: 410px;
+    border: 1px solid rgb(219, 219, 219);
+}
+
+#d-key {
+    width: 60px;
+    height: 60px;
+    position: relative;
+    top: 10px;
+}
+
+#s-key {
+    width: 60px;
+    height: 60px;
+    position: relative;
+    top: 80px;
+    right: 63px;
 }
