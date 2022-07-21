@@ -72,7 +72,7 @@ document.addEventListener('keydown', (e) => {
                 // remove pile
                 setTimeout(() => {
                 const imgBackOfCard = new Image();
-                imgBackOfCard.src = "/docs/assets/images/backOfCard_blue.png"
+                imgBackOfCard.src = "./docs/assets/images/backOfCard_blue.png"
                     imgBackOfCard.onload = () => {
                     ctx.drawImage(imgBackOfCard, (selectedPile.x + 2), selectedPile.y, 80, 120);
 
@@ -95,7 +95,7 @@ document.addEventListener('keydown', (e) => {
                 // remove pile
                 setTimeout(() => {
                     const imgBackOfCard = new Image();
-                    imgBackOfCard.src = "/docs/assets/images/backOfCard_blue.png"
+                    imgBackOfCard.src = "./docs/assets/images/backOfCard_blue.png"
                         imgBackOfCard.onload = () => {
                         ctx.drawImage(imgBackOfCard, (selectedPile.x + 2), selectedPile.y, 80, 120);
     
@@ -149,7 +149,7 @@ document.addEventListener('keydown', (e) => {
                 // remove pile
                 setTimeout(() => {
                     const imgBackOfCard = new Image();
-                    imgBackOfCard.src = "/docs/assets/images/backOfCard_blue.png"
+                    imgBackOfCard.src = "./docs/assets/images/backOfCard_blue.png"
                         imgBackOfCard.onload = () => {
                         ctx.drawImage(imgBackOfCard, (selectedPile.x + 2), selectedPile.y, 80, 120);
     
@@ -170,7 +170,7 @@ document.addEventListener('keydown', (e) => {
                 // remove pile
                 setTimeout(() => {
                     const imgBackOfCard = new Image();
-                    imgBackOfCard.src = "/docs/assets/images/backOfCard_blue.png"
+                    imgBackOfCard.src = "./docs/assets/images/backOfCard_blue.png"
                         imgBackOfCard.onload = () => {
                         ctx.drawImage(imgBackOfCard, (selectedPile.x + 2), selectedPile.y, 80, 120);
     
@@ -224,7 +224,7 @@ document.addEventListener('keydown', (e) => {
                 // remove pile
                 setTimeout(() => {
                     const imgBackOfCard = new Image();
-                    imgBackOfCard.src = "/docs/assets/images/backOfCard_blue.png"
+                    imgBackOfCard.src = "./docs/assets/images/backOfCard_blue.png"
                         imgBackOfCard.onload = () => {
                         ctx.drawImage(imgBackOfCard, (selectedPile.x + 2), selectedPile.y, 80, 120);
     

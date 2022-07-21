@@ -90,7 +90,7 @@ this.start();
 
         setTimeout(() => {
           const imgWin = new Image();
-          imgWin.src = "/docs/assets/images/excited_picture.jpeg"
+          imgWin.src = "./docs/assets/images/excited_picture.jpeg"
               imgWin.onload = () => {
               ctx.drawImage(imgWin, 80, 100, 700, 450);
 
@@ -107,7 +107,7 @@ lossCheck() {
 
         setTimeout(() => {
           const imgLoss = new Image();
-          imgLoss.src = "/docs/assets/images/sad_dog.webp"
+          imgLoss.src = "./docs/assets/images/sad_dog.webp"
               imgLoss.onload = () => {
               ctx.drawImage(imgLoss, 80, 100, 700, 450);
 
