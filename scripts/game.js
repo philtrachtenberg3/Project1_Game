@@ -102,7 +102,7 @@ lossCheck() {
   if (lossTracker === 0) {
         this.ctx.clearRect(0, 0, 900, 600);
         this.ctx.fillStyle = 'red';
-        ctx.font = "bold 42px sans-serif";
+        this.ctx.font = "bold 42px sans-serif";
         this.ctx.fillText(`BETTER LUCK NEXT TIME!!!`, 150, 80);
 
         setTimeout(() => {
