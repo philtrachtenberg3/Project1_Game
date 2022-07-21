@@ -43,7 +43,7 @@ class Game {
     const remainingCards = this.cardsArray.length;
     ctx.font = "bold 16px sans-serif";
     ctx.fillStyle = "black";
-    this.ctx.clearRect(0, 0, 900, 100);
+    this.ctx.clearRect(0, 0, 900, 90);
     this.ctx.fillText(`Remaining Cards: ${remainingCards}`, 700, 30);
   }
 
