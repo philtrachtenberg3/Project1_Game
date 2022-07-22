@@ -34,4 +34,4 @@ decksArray.forEach((deck, index) => {
     ctx.strokeRect(deck.x, deck.y, 90, 130)
 }) 
 
-/* } */
+/*  } */
