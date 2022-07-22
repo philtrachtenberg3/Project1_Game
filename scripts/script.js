@@ -1,7 +1,7 @@
-window.onload = () => {
-
-const ctx = canvas.getContext('2d');
+/* window.onload = () => {  */
     const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+
 
 // create the position for all piles of cards
 
@@ -33,4 +33,5 @@ decksArray.forEach((deck, index) => {
 
     ctx.strokeRect(deck.x, deck.y, 90, 130)
 }) 
-}
+
+/* } */
