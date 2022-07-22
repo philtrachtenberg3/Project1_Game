@@ -77,6 +77,7 @@ this.start();
     this.returnFirst9Cards();
     this.printCards();
     this.remainingCards();
+    lossTracker = 9;
     console.log(this.cardsArray);
     console.log(this.decksArray);
   };
@@ -89,6 +90,7 @@ this.start();
         this.ctx.fillText(`YOU WIN!!!`, 350, 80);
 
         setTimeout(() => {
+          this.ctx.clearRect(0, 130, 900, 600);
           const imgWin = new Image();
           imgWin.src = "./docs/assets/images/excited_picture.jpeg"
               imgWin.onload = () => {
@@ -106,6 +108,7 @@ lossCheck() {
         this.ctx.fillText(`BETTER LUCK NEXT TIME!!!`, 150, 80);
 
         setTimeout(() => {
+          this.ctx.clearRect(0, 130, 900, 600);
           const imgLoss = new Image();
           imgLoss.src = "./docs/assets/images/sad_dog.webp"
               imgLoss.onload = () => {
